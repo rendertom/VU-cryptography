@@ -14,11 +14,13 @@ module.exports = class Cheff {
         if (temp.needsDecoding()) {
           this.toBase64();
         } else {
+          this.history = this.history.concat(temp.history);
           this.string = temp.string;
+          return this;
         }
-      } else if (this.isValidHex(this.string)) {
+      } else if (this.isValidHex()) {
         this.fromHex();
-      } else if (this.isValidBase64(this.string)) {
+      } else if (this.isValidBase64()) {
         this.fromBase64();
       } else {
         return this;
@@ -67,6 +69,7 @@ module.exports = class Cheff {
     this.string = new TextDecoder('UTF-8').decode(
       new Uint8Array(Buffer.from(this.string, 'binary'))
     );
+    this.history.push('toUTF8');
     return this;
   }
 
