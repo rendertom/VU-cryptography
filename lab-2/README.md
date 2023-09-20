@@ -17,7 +17,8 @@ cheff
   .fromHex()
   .fromHex()
   .toBase64()
-  .fromHex();
+  .fromHex()
+  .toUTF8();
 
 // Result
 {
@@ -35,12 +36,6 @@ cheff
 ```
 
 ---
-
-## Install dependencies
-
-```bash
-npm install
-```
 
 ## Run
 
