@@ -1,23 +1,21 @@
-
-const utf8 = require('utf8');
-
-module.exports = class Sheff {
+module.exports = class Cheff {
   constructor(ciphertext) {
     this.ciphertext = ciphertext;
     this.history = [];
     this.string = ciphertext;
-    this.surrogates = 'ĄąČčĘęĖėÄĮįŠšŲųŪūŽž'
-      .split('')
-      .map((char) => utf8.encode(char).split(''));
   }
-
 
   auto(max = 50) {
     let i = 0;
     while (true && i < max) {
       i++;
-      if (this.hasCharacterOutOfRange()) {
-        this.toBase64();
+      if (this.needsDecoding()) {
+        const temp = new Cheff(this.string).toUTF8();
+        if (temp.needsDecoding()) {
+          this.toBase64();
+        } else {
+          this.string = temp.string;
+        }
       } else if (this.isValidHex(this.string)) {
         this.fromHex();
       } else if (this.isValidBase64(this.string)) {
@@ -53,44 +51,30 @@ module.exports = class Sheff {
     return /^[0-9a-fA-F]+$/.test(this.string);
   }
 
+  needsDecoding() {
+    const whiteList = 'ĄąČčĘęĖėĮįŠšŲųŪūŽž';
+    const regex = new RegExp(`[^\x00-\x7F${whiteList}]`);
+    return regex.test(this.string);
+  }
+
   toBase64() {
     this.string = btoa(this.string);
     this.history.push('toBase64');
     return this;
   }
 
-  // TODO: this makes no sense
-  hasCharacterOutOfRange() {
-    for (let i = 0; i < this.string.length; i++) {
-      const char = this.string[i];
-      const nextChar = this.string[i + 1];
-      if (nextChar) {
-        for (var j = 0; j < this.surrogates.length; j++) {
-          if (
-            char === this.surrogates[j][0] &&
-            nextChar === this.surrogates[j][1]
-          ) {
-            return false;
-          }
-        }
-      }
-      if (!this.isPrintableCharacter(char)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  isPrintableCharacter(char) {
-    const charCode = char.charCodeAt(0);
-    return charCode >= 32 && charCode <= 127;
+  toUTF8() {
+    this.string = new TextDecoder('UTF-8').decode(
+      new Uint8Array(Buffer.from(this.string, 'binary'))
+    );
+    return this;
   }
 
   toString() {
     return {
       ciphertext: this.ciphertext,
       history: this.history,
-      result: utf8.decode(this.string),
+      result: this.string,
     };
   }
-}
+};

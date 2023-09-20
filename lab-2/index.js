@@ -14,6 +14,7 @@ const result = cheff
   .fromHex()
   .toBase64()
   .fromHex()
+  .toUTF8()
   .toString();
 
 console.log(result);
