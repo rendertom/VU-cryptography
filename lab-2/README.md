@@ -4,8 +4,7 @@
 
 ```javascript
 const ciphertext = 'E39DF7DFAE39E36DFDE39E3ADF8E39E36E38E39E36E36E39E3ADFDE38E36DF8E39E3ADF8E39E36DFDE39DFCDF6DF4E36DFCE3ADFBE36E39E36DFCE39E36DF9E39E36E38E38E36DF8E39E3ADF8E39E36DFDE39DFCDF6E39E36DFDE39E3ADFBE38E36DF8E39DFCDF7E39DFCDF9E39DFCDF5E39E3AE38E39E3ADFCE39E36E38';
-
-const cheff = new Cheff(string);
+const cheff = new Cheff(ciphertext);
 
 // Use an automated approach to decipher
 cheff.auto();
@@ -30,6 +29,7 @@ cheff
     'fromHex',
     'toBase64',
     'fromHex'
+    'toUTF8'
   ],
   result: 'Bepigu pelėdai peles mokyti'
 }
@@ -56,7 +56,8 @@ All examples use `Cheff.auto()` approach.
     'fromHex',
     'fromHex',
     'toBase64',
-    'fromHex'
+    'fromHex',
+    'toUTF8'
   ],
   result: 'Bepigu pelėdai peles mokyti'
 }
@@ -65,13 +66,10 @@ All examples use `Cheff.auto()` approach.
 {
   ciphertext: '0C5EC317C0C5F0317A0C5EC31410C5EC317D0C5EC31400C5F0317A0C5EC31410C5EC317D0C5EC31410C5EC317C0C5F0317B0C5EC317C0C5EC31430C5EC31410C5EC317A0C5EC31780C5EC31400C5EC31410C5EC31400C5EC317D0C5EC31400C5EC31410C5EC31410C5EC317D0C5EC31400C5F031400C5EC31400C5F031790C5EC31400C5EC31790C5EC317A0C5EC31780C5EC317A0C5F0317C0C5EC317A0C5EC31780C5EC31410C5EC317C0C5EC31410C5EC317D0C5EC31410C5EC317A0C5EC31400C5EC317A0C5F0317B0C5EC317D0C5F031790C5F0317A0C5EC31410C5EC317C0C5EC317A0C5EC31780C5EC31400C5F0317B0C5EC31400C5EC31430C5EC31410C5EC317B',
   history: [
-    'fromHex',
-    'toBase64',
-    'fromHex',
-    'toBase64',
-    'fromHex',
-    'fromHex',
-    'fromHex'
+    'fromHex', 'toBase64',
+    'fromHex', 'toBase64',
+    'fromHex', 'fromHex',
+    'fromHex', 'toUTF8'
   ],
   result: 'Kukutė geguoja - turbūt lis'
 }
@@ -86,7 +84,14 @@ All examples use `Cheff.auto()` approach.
 
 {
   ciphertext: 'DF9DF5DF9DF7DF8DF6DFBDF7DFADF5DF9DF7DF8DF6DFBDFBDF9DFDDF9DFBDF7DF8DFADFBDFADF8DF8DFBDFAE39DF8DFADFBDF7DFBDFDDF8DF6DF7DF9DF9DF4DFBDFBDF7E38DF7E38',
-  history: [ 'fromHex', 'toBase64', 'fromHex', 'fromHex', 'fromBase64' ],
+  history: [
+    'fromHex',
+    'toBase64',
+    'fromHex',
+    'fromHex',
+    'fromBase64',
+    'toUTF8'
+  ],
   result: 'A li pan tių y?'
 }
 
@@ -99,7 +104,8 @@ All examples use `Cheff.auto()` approach.
     'fromHex',
     'toBase64',
     'fromHex',
-    'fromHex'
+    'fromHex',
+    'toUTF8'
   ],
   result: 'Lyja kaip iš kibiro'
 }
@@ -113,7 +119,8 @@ All examples use `Cheff.auto()` approach.
     'fromHex',
     'fromBase64',
     'fromHex',
-    'fromHex'
+    'fromHex',
+    'toUTF8'
   ],
   result: 'Žalia žolė bet ne žolė'
 }
@@ -143,7 +150,8 @@ All examples use `Cheff.auto()` approach.
     'fromHex',
     'toBase64',
     'fromHex',
-    'fromBase64'
+    'fromBase64',
+    'toUTF8'
   ],
   result: 'Įdomu, kur jis buvo, kai protą dalino'
 }
@@ -158,7 +166,7 @@ All examples use `Cheff.auto()` approach.
 
 {
   ciphertext: '344535343431333234463534363337393445364234393739344434343539333034453741343933323444353435413435344536413439333235313330344433303531353535393739353235343439373734453534343133323446353436333739344536423439373934443434363337373445364234443333344635343633333035313741353133343445353434413436',
-  history: [ 'fromHex', 'fromHex', 'fromBase64', 'fromHex' ],
+  history: [ 'fromHex', 'fromHex', 'fromBase64', 'fromHex', 'toUTF8' ],
   result: 'Pirk dramblį. Pirk plytą.'
 }
 
@@ -208,7 +216,15 @@ All examples use `Cheff.auto()` approach.
 
 {
   ciphertext: 'DF7DF7DF7DF9DF7DF7DF7DF7DF7DF7DF7DFBDF7DF7DF7DF9DF7DF7DF7DF6DF7DF7DF7DF4DF7DF7DF7DFADF7DF8DF7DF6DF7DF7DF7DFADF7DF7DF7DFDDF7DF7DF7DFADF7DF8DF7DF9DF7DF7DF7DFADF7DF7DF7DF5DF7DF7DF7DFADF7DF7DF7DFDDF7DF7DF7DFBDF7DF7DF7DF7DF7DF7DF7DF6DF7DF7DF7DF4DF7DF7DF7DFADF7DF7DF7DF6DF7DF7DF7DFADF7DF7DF7DF9DF7DF7DF7DFADF7DF8DF7DF9DF7DF7DF7DFADF7DF7DF7DF8DF7DF7DF7DFBDF7DF7DF7DF6DF7DF7DF7DFADF7DF7DF7DF5DF7DF7DF7DFBDF7DF7DF7DF9DF7DF7DF7DFBDF7DF7DF7DF7DF7DF7DF7DFADF7DF7DF7DFDDF7DF7DF7DF6DF7DF7DF7DF4DF7DF7DF7DF6DF7DF8DF7DF8DF7DF7DF7DF6DF7DF7DF7DF4DF7DF7DF7DFBDF7DF7DF7DF7DF7DF7DF7DFBDF7DF7DF7DF9DF7DF7DF7DFADF7DF8DF7DF6DF7DF7DF7DFADF7DF7DF7DFDDF7DF7DF7DFADF7DF8DF7DF9DF7DF8DF7DF7DF7DF7DF7DF8DF7DF7DF7DFDDF7DF7DF7DFBDF7DF7DF7DFBDF7DF7DF7DF7DF7DF7DF7DFADF7DF7DF7DFD',
-  history: [ 'fromHex', 'toBase64', 'fromHex', 'fromHex', 'fromHex', 'fromHex' ],
+  history: [
+    'fromHex',
+    'toBase64',
+    'fromHex',
+    'fromHex',
+    'fromHex',
+    'fromHex',
+    'toUTF8'
+  ],
   result: 'Su kinais bendrausi - sukinėsi'
 }
 
@@ -222,70 +238,77 @@ All examples use `Cheff.auto()` approach.
 
 {
   ciphertext: 'DF7DF8DF7DF5DF7DFBDF7DF6DF7DF6DF7DF4DF7DFBDF7DF8DF7DFBDF7DF9DF7DF6DF7DF4DF8DF7DF7DF9DF8DF6DF8DF9DF7DFADF7DF5DF7DFADF7DFDDF7DFADF7DF8DF7DFADF7DFDDF7DF6DF7DF4DF8DF7DF7DF9DF8DF5DF7DF5DF7DFADF7DF5DF7DFADF7DF7DF7DFADF7DFCDF7DFADF8DF8DF7DFADF7DF5DF7DFBDF7DF8DF7DFADF7DF5DF7DFADF7DFDDF7DFBDF7DF7DF7DF7DF8DFA',
-  history: [ 'fromHex', 'toBase64', 'fromHex', 'fromHex', 'fromHex' ],
+  history: [ 'fromHex', 'toBase64', 'fromHex', 'fromHex', 'fromHex', 'toUTF8' ],
   result: 'Ar tu žaidi šachmatais?'
 }
 
 
 {
   ciphertext: '546B526A4D6B355559336C4F616D73795456526A4D55317151544A4E616D4E35546D70724D6B35555754424F616D737A5458704A64303571597A4A5056474E35546D70724D6C4A71576B4A4E616B4579556C525A4D55357161336C4E52553078555774564D3035715754564F656B6B795457706152453571617A4E4E656B6C33546E704A4D6B3155576B5A4F61306B79556D706151673D3D',
-  history: [ 'fromHex', 'fromBase64', 'fromBase64', 'fromHex' ],
+  history: [ 'fromHex', 'fromBase64', 'fromBase64', 'fromHex', 'toUTF8' ],
   result: 'Geriau briedis girioj nei žvirblis rankoj'
 }
 
 
 {
   ciphertext: '444638444638453337444639453336453339444642444639444641453339444641444642444641453337444641444644453337444639453336444637444636444634453337444639453335444635444641453339444641444644453337444639453335453336444642444636444642444637444636444634444636453338444636444634444641444642444642444644444642444641444641444635444642444638453337444638444644444642',
-  history: [ 'fromHex', 'fromHex', 'toBase64', 'fromHex', 'fromHex' ],
+  history: [ 'fromHex', 'fromHex', 'toBase64', 'fromHex', 'fromHex', 'toUTF8' ],
   result: 'Džunglių šniūrs - gyvatė'
 }
 
 
 {
   ciphertext: 'E79E7AEB7DF5EB7E83E03EC0E79E80E7AE81EB6E79E40DFAE77E79EBCE37EB5E3BE76E7CEB8E81E40EFAE7BE3AE00EFBE7DDF7E82E37EB9E83E00E3CEB6E3BEFCEBCE05E3AE04E3BE77E79EB8E81EB5E3BE76E7CE04E7BEBBDC3',
-  history: [ 'fromHex', 'toBase64', 'fromHex', 'fromBase64', 'fromBase64' ],
+  history: [
+    'fromHex',
+    'toBase64',
+    'fromHex',
+    'fromBase64',
+    'fromBase64',
+    'toUTF8'
+  ],
   result: 'Ankstyvas paukštis slieką gauna'
 }
 
 
 {
   ciphertext: '343533303333343534323335333034323339333033343334343534323434343534323335343534363339343434323334343533383333333034323338343633333339343534363337343534363338343534363434343533383331343433383332343434323334343533383335343434323334343534363338343534323335343534323434343434323334343534323432343534323335343533383332343534363431333034323338343633333339343434323334343534363337343533383331343534323335343534363339343534323338333034323338343633373432343534363337',
-  history: [ 'fromHex', 'fromHex', 'fromHex', 'toBase64', 'fromHex' ],
+  history: [ 'fromHex', 'fromHex', 'fromHex', 'toBase64', 'fromHex', 'toUTF8' ],
   result: 'Mažiau mąstyk, o tai galvą skaudės'
 }
 
 
 {
   ciphertext: 'MzUzNDM3MzUzNzMwMzYzOTMyMzAzNzM2MzYzMTM3MzIzNjQ1MzYzMTMyMzAzNjMxMzY0NTM3MzQzMjMwNDMzNTQxMzEzNjMxMzY0MjM2NDYzNzMz',
-  history: [ 'fromBase64', 'fromHex', 'fromHex' ],
+  history: [ 'fromBase64', 'fromHex', 'fromHex', 'toUTF8' ],
   result: 'Tupi varna ant šakos'
 }
 
 
 {
   ciphertext: '343533373334343534363336343534323434343534323339343434323334343533303334343534323339343533383333343534363339343533383334343533383335343434323334343533383331343534323434343534363338343534323335343534363337343434323334343534323335343534363339333034323339333033333335343534363338343534323335343434323334343533383330343534323335343534363339343434323334343534363336343534363434343534363338343534323335343534363337',
-  history: [ 'fromHex', 'fromHex', 'fromHex', 'toBase64', 'fromHex' ],
+  history: [ 'fromHex', 'fromHex', 'fromHex', 'toBase64', 'fromHex', 'toUTF8' ],
   result: 'Prie Nemuno kitas aušta jau rytas'
 }
 
 
 {
   ciphertext: '353333383533353835413444353335383439343737343638363135383431363736333332333936413631353734363733363135373335373036333739343237323632333233353741363434383441333136313333353236383633373733443344',
-  history: [ 'fromHex', 'fromHex', 'fromBase64' ],
+  history: [ 'fromHex', 'fromHex', 'fromBase64', 'toUTF8' ],
   result: 'Kėdė kaip socialinis konstruktas'
 }
 
 
 {
   ciphertext: '35363733353335383738363233373435364337393737363736343733353335383738363233353730363237393434343637363644333137363632364434353344',
-  history: [ 'fromHex', 'fromHex', 'fromBase64' ],
+  history: [ 'fromHex', 'fromHex', 'fromBase64', 'toUTF8' ],
   result: 'Vėžė, vėžio žmona'
 }
 
 
 {
   ciphertext: 'MzMzNTMzMzIzMzM3MzMzOTMzMzczMzM0MzMzNjMzMzEzMzM3MzMzMzMzMzIzMzMwMzMzNzMzMzUzNDMzMzMzNTM0MzIzNDM1MzMzMjMzMzAzMzM3MzMzNjMzMzYzMzMxMzMzNjM0MzIzMzM2MzMzMTMzMzczMzMyMzQzMzMzMzQzMzM4MzMzNTMzMzIzMzMwMzMzNjMzMzczMzM2MzMzNTMzMzczMzMyMzMzNjMzMzUzMzM3MzMzMzMzMzYzNDM1MzMzNjMzMzkzMzM3MzMzMw==',
-  history: [ 'fromBase64', 'fromHex', 'fromHex', 'fromHex' ],
+  history: [ 'fromBase64', 'fromHex', 'fromHex', 'fromHex', 'toUTF8' ],
   result: 'Rytas už vakarą geresnis'
 }
 
@@ -298,7 +321,8 @@ All examples use `Cheff.auto()` approach.
     'fromHex',
     'fromHex',
     'fromBase64',
-    'fromBase64'
+    'fromBase64',
+    'toUTF8'
   ],
   result: 'Laimė nutekėjimo'
 }
@@ -306,7 +330,7 @@ All examples use `Cheff.auto()` approach.
 
 {
   ciphertext: '5657704B5632565853586C694D6D5268545731344E566C57597A566A56577849576B6434616D4A5864473561527A567A5A565A73574745795A474650526B355A57544E4F564664425054303D',
-  history: [ 'fromHex', 'fromBase64', 'fromBase64', 'fromBase64' ],
+  history: [ 'fromHex', 'fromBase64', 'fromBase64', 'fromBase64', 'toUTF8' ],
   result: 'Geroj girioj geri vyrai gėrė'
 }
 
@@ -320,28 +344,35 @@ All examples use `Cheff.auto()` approach.
 
 {
   ciphertext: 'VGtWSk1sSnFXa05PYW1zeVRWUkpkMUY2VmtKTlZGazFUbXBGTWxKVVdUQk9hbXN5VGxSYVJrMXFRVEpPUkZrMVRtcFZNbEpVV1hoTk1Gazk',
-  history: [ 'fromBase64', 'fromBase64', 'fromBase64', 'fromHex' ],
+  history: [ 'fromBase64', 'fromBase64', 'fromBase64', 'fromHex', 'toUTF8' ],
   result: 'Kokia šiandien diena?'
 }
 
 
 {
   ciphertext: 'DF7DF9DF7DF7DF7DFBDF7DF9DF7DF6DF7DF4DF7DFADF7DF5DF7DFADF8DF9DF7DFADF7DFBDF7DFADF8DF7DF7DFADF7DF5DF7DFADF7DFDDF7DFBDF7DF7DF7DF6DF7DF4DF7DFADF7DF6DF7DFADF7DF9DF7DFADF8DF9DF7DFADF7DF8DF7DFBDF7DF6DF7DFADF7DF5DF7DFBDF7DF9DF7DFBDF7DF7DF7DFADF7DFDDF7DF6DF7DF4DF7DF6DF8DF8DF7DF6DF7DF4DF7DFBDF7DF7DF7DFBDF7DF9DF7DFADF7DF5DF7DFADF8DF9DF7DFADF7DFBDF7DFADF8DF7DF8DF7DF7DF8DF7DFDDF7DFBDF7DFBDF7DF7DF7DFADF7DFD',
-  history: [ 'fromHex', 'toBase64', 'fromHex', 'fromHex', 'fromHex' ],
+  history: [ 'fromHex', 'toBase64', 'fromHex', 'fromHex', 'fromHex', 'toUTF8' ],
   result: 'Su anglais bendrausi - suanglėsi'
 }
 
 
 {
   ciphertext: '55587057516C4655576B4E4F616B5579556C52615230353655544A4E56474E36546D70724D3031365358644F524555795558705A65553571617A4A53616C7047546D70464D3031365358644F613145795456526A656B3571617A4A5356466C34',
-  history: [ 'fromHex', 'fromBase64', 'fromBase64', 'fromHex' ],
+  history: [ 'fromHex', 'fromBase64', 'fromBase64', 'fromHex', 'toUTF8' ],
   result: 'Ūkanotasis Albionas masina'
 }
 
 
 {
   ciphertext: 'E04E38E75DF6E05E78E7DDF5E04E81E75DF6E04E78E7DDF4E75EC0E7AE37E76E78E7DDF9E04EC0E79EFDE03E39E03DF5E75E81E79DF7E05E78E7DDF4E75EC0E75DF9E04EC0EB7EC0E04E80E81DF7E04E75DC3DC3',
-  history: [ 'fromHex', 'toBase64', 'fromHex', 'fromBase64', 'fromHex' ],
+  history: [
+    'fromHex',
+    'toBase64',
+    'fromHex',
+    'fromBase64',
+    'fromHex',
+    'toUTF8'
+  ],
   result: 'Diemedžiu žydėsiu'
 }
 
@@ -354,7 +385,8 @@ All examples use `Cheff.auto()` approach.
     'toBase64',
     'fromHex',
     'toBase64',
-    'fromHex'
+    'fromHex',
+    'toUTF8'
   ],
   result: 'Vilniaus Jėzaus draugijos akademija'
 }
@@ -362,7 +394,7 @@ All examples use `Cheff.auto()` approach.
 
 {
   ciphertext: 'NDMzNTQyNDQzNjMxMzY0MzM2MzkzNjMxMzczMzMyMzAzNzM2MzczOTM2NDUzNjMxMzczMzMyMzAzMjQ0MzIzMDM2NDUzNjM1MzIzMDM3MzYzNjMxMzY0NTM2MzQzNzM1MzY0Ng==',
-  history: [ 'fromBase64', 'fromHex', 'fromHex' ],
+  history: [ 'fromBase64', 'fromHex', 'fromHex', 'toUTF8' ],
   result: 'Žalias vynas - ne vanduo'
 }
 
@@ -383,7 +415,8 @@ All examples use `Cheff.auto()` approach.
     'fromBase64',
     'fromHex',
     'toBase64',
-    'fromHex'
+    'fromHex',
+    'toUTF8'
   ],
   result: 'Su uodega bet ne pelė'
 }
@@ -397,7 +430,8 @@ All examples use `Cheff.auto()` approach.
     'fromHex',
     'fromHex',
     'fromHex',
-    'fromBase64'
+    'fromBase64',
+    'toUTF8'
   ],
   result: 'Viso gero, skylutės!'
 }
@@ -405,14 +439,14 @@ All examples use `Cheff.auto()` approach.
 
 {
   ciphertext: '33333335333333333333333633343332333333373333333233333336333333353333333633343335333333363333333433333336333333313333333233333330333333363334333233333336333333313333333633333339333333373333333033333332333333303333333633333331333333363334333233333336333433343333333633333335333333363334333533343333333333343333333933333337333333363334333333333336333333393333333733333333',
-  history: [ 'fromHex', 'fromHex', 'fromHex', 'fromHex' ],
+  history: [ 'fromHex', 'fromHex', 'fromHex', 'fromHex', 'toUTF8' ],
   result: 'Skrenda kaip akmenėlis'
 }
 
 
 {
   ciphertext: 'DF7DF8DF8DFADF7DFBDF7DF6DF7DFADF8DFADF7DF6DF7DF4DF7DFBDF7DFADF7DFADF7DF9DF8DF7DF7DF9DF8DF6DF8DF9DF7DFADF7DFDDF7DFADF8DF8DF7DFADF7DF5DF7DFADF7DFDDF7DF6DF8DF7DF7DF6DF7DF4DF7DFBDF7DFADF7DFADF7DF5DF7DFADF8DF9DF7DFADF7DF8DF7DFADF7DF9DF7DFADF8DF9DF7DFBDF7DF7DF7DF6DF7DF4DF7DFADF7DF8DF7DFBDF7DFADF7DFADF7DFDDF7DFBDF7DF6DF7DFADF7DF5DF8DF7DF7DF8DF7DFCDF8DF8DF7DFADF7DFDDF7DFADF7DF5DF7DFADF7DFD',
-  history: [ 'fromHex', 'toBase64', 'fromHex', 'fromHex', 'fromHex' ],
+  history: [ 'fromHex', 'toBase64', 'fromHex', 'fromHex', 'fromHex', 'toUTF8' ],
   result: 'Oro vežimai, vandens dviračiai'
 }
 
@@ -426,7 +460,8 @@ All examples use `Cheff.auto()` approach.
     'fromBase64',
     'fromHex',
     'toBase64',
-    'fromHex'
+    'fromHex',
+    'toUTF8'
   ],
   result: 'Dvyratūkas mano niekaip nesustoja'
 }
@@ -435,14 +470,11 @@ All examples use `Cheff.auto()` approach.
 {
   ciphertext: 'D770440B7D7B035DFBD34E34078D77EF40B80C2DB5DC1D3CE030B4D74E74D38D7B075DC1D38E34E36D74D44E38102D75DFC0F4E35E37D74D45D38102D740B9D02DF5EFCD770740B8105075D39D38E34E35D74D44F38177EF5DC1D34E35E35D770740B8102DB5DF8134E35EC1D74E74F380F7E35D35174E35E35D74D45D380C2D75DFB178DF407B',
   history: [
-    'fromHex',
-    'toBase64',
-    'fromHex',
-    'toBase64',
-    'fromHex',
-    'toBase64',
-    'fromHex',
-    'fromBase64'
+    'fromHex', 'toBase64',
+    'fromHex', 'toBase64',
+    'fromHex', 'toBase64',
+    'fromHex', 'fromBase64',
+    'toUTF8'
   ],
   result: 'Kas užšifruota, nepaslėpta'
 }
@@ -450,7 +482,7 @@ All examples use `Cheff.auto()` approach.
 
 {
   ciphertext: 'VmtjeFYwMUhVbGxVUlZaelRXNUNNbE5WWkd0aVIwNTBUMWh3U2xKNlJqSmFSV2h6WkZkSmVsUlVNRDA9',
-  history: [ 'fromBase64', 'fromBase64', 'fromBase64', 'fromBase64' ],
+  history: [ 'fromBase64', 'fromBase64', 'fromBase64', 'fromBase64', 'toUTF8' ],
   result: 'Neturėjo geros motynos'
 }
 
@@ -463,7 +495,8 @@ All examples use `Cheff.auto()` approach.
     'fromHex',
     'fromHex',
     'fromBase64',
-    'fromBase64'
+    'fromBase64',
+    'toUTF8'
   ],
   result: 'Davė Dievas dantis - duos ir duonos'
 }
@@ -471,7 +504,7 @@ All examples use `Cheff.auto()` approach.
 
 {
   ciphertext: '56544E565A3368694E54566152305A7759336C43615670584E57746A62555978597A4A725A307854516E706B593163725A5664555257777A546E413D',
-  history: [ 'fromHex', 'fromBase64', 'fromBase64' ],
+  history: [ 'fromHex', 'fromBase64', 'fromBase64', 'toUTF8' ],
   result: 'Su žydais bendrausi - sužydėsi'
 }
 ```
